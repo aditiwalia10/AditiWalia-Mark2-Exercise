@@ -9,6 +9,82 @@
 <body>
     Hey! I am Aditi Walia.
     This is my Mark 2 exercise.
-    
+
+    A CLI quiz to know whether you are a fan of Friends series.
+
+    var readlineSync = require("readline-sync");
+
+var score = 0;
+
+var userName = readlineSync.question("What's your name? ");
+
+console.log("Welcome " + userName);
+console.log("Let's have a quiz how well do you know about FRIENDS series");
+
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) { // branching
+    console.log("right!");
+    score = score + 1;
+
+  } else {
+    console.log("wrong!");
+
+  }
+
+  console.log("current score: ", score);
+  console.log("-------------")
+}
+
+var questionone = {
+  question: "How many sisters does Joey have? ",
+  answer: "7"
+}
+var questiontwo = {
+  question: "What is Chandler’s middle name? ",
+  answer: "Muriel"
+}
+var questionthree = {
+  question: "What instrument did Ross intend to play at Monica and Chandler’s wedding? ",
+  answer: "Bagpipes"
+}
+var questionfour = {
+  question: "How many seasons of Friends are there?",
+  answer: "Ten"
+}
+var questionfive = {
+  question: "How many times did Ross get divorced?",
+  answer: "Three"
+}
+var highScores = [
+  {
+    name: "Raghav",
+    score: 5,
+  },
+
+  {
+    name: "Deepa",
+    score: 3,
+  },
+]
+
+var questions = [questionone, questiontwo, questionthree, questionfour, questionfive];
+for (var i = 0; i < questions.length; i++) {
+  var currentQuestion = questions[i];
+  play(currentQuestion.question, currentQuestion.answer)
+}
+
+console.log("YAY! You SCORED: ", score);
+
+console.log("Check out the high scores, if you should be there ping me and I'll update it");
+
+highScores.map(score => console.log(score.name, " : ", score.score))
+
+
+
+
+
+
 </body>
 </html>
